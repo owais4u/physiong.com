@@ -23,7 +23,7 @@ These are product modules, not a requirement to launch separate apps. Start with
 - OpenTelemetry for logs, metrics, and traces.
 - Modular monolith first; extract independently deployable services when justified.
 
-See the [project plan](PROJECT_PLAN.md), [MVP scope](MVP_README.md), [repository structure](REPOSITORY_STRUCTURE.md), [implementation blueprint](docs/product/implementation-blueprint.md), [High-Level Design](docs/architecture/high-level-design.md), and [Low-Level Design](docs/architecture/low-level-design.md).
+See the [project plan](PROJECT_PLAN.md), [MVP scope](MVP_README.md), [repository structure](REPOSITORY_STRUCTURE.md), [implementation blueprint](docs/product/implementation-blueprint.md), [system design diagram](docs/architecture/physiong-system-design.drawio), [High-Level Design](docs/architecture/high-level-design.md), and [Low-Level Design](docs/architecture/low-level-design.md).
 
 ## Delivery sequence
 

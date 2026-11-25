@@ -1,0 +1,86 @@
+<mxfile host="app.diagrams.net" modified="2026-11-25T12:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="physiong-system-context" name="System Design">
+    <mxGraphModel dx="1450" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="PhysioNG — MVP System Design" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#12304A;" vertex="1" parent="1">
+          <mxGeometry x="40" y="24" width="850" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Clinic-first modular monolith · tenant-aware by design · responsive PWA" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontColor=#526579;" vertex="1" parent="1">
+          <mxGeometry x="42" y="66" width="850" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="users" value="&lt;b&gt;Clinic team&lt;/b&gt;&lt;br&gt;Clinic admin · Practitioner&lt;br&gt;Front-desk staff" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#6B8EAE;strokeWidth=2;fontColor=#12304A;fontSize=15;align=center;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="265" width="190" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="web" value="&lt;b&gt;Next.js web app&lt;/b&gt;&lt;br&gt;Responsive PWA&lt;br&gt;Role-based clinic workflows&lt;br&gt;No trusted tenant filtering in UI" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#EAF4FF;strokeColor=#3980B9;strokeWidth=2;fontColor=#12304A;fontSize=15;align=center;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="305" y="240" width="240" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="api" value="&lt;b&gt;NestJS Core API&lt;/b&gt; — modular monolith&lt;br&gt;&lt;br&gt;Authenticate identity · resolve tenant membership&lt;br&gt;Enforce RBAC + resource permissions&lt;br&gt;Validate requests · run domain transactions&lt;br&gt;&lt;br&gt;Domains: Identity · Tenants · Organizations · Patients&lt;br&gt;Practitioners · Scheduling · Clinical Records · Audit" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E8F7F2;strokeColor=#2B9B77;strokeWidth=2;fontColor=#12304A;fontSize=14;align=center;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="625" y="185" width="410" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" value="&lt;b&gt;PostgreSQL&lt;/b&gt;&lt;br&gt;System of record&lt;br&gt;&lt;br&gt;Tenant-owned records&lt;br&gt;RLS + tenant-aware constraints&lt;br&gt;Clinical data + audit history" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F1ECFA;strokeColor=#8064A2;strokeWidth=2;fontColor=#302346;fontSize=14;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="225" width="220" height="185" as="geometry" />
+        </mxCell>
+
+        <mxCell id="identity" value="&lt;b&gt;Identity provider&lt;/b&gt;&lt;br&gt;Provider selection TBD&lt;br&gt;MFA for privileged roles" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;dashed=1;dashPattern=6 4;fillColor=#FFFFFF;strokeColor=#9B8AB5;strokeWidth=2;fontColor=#44385A;fontSize=13;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="65" y="125" width="190" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="&lt;b&gt;Redis&lt;/b&gt;&lt;br&gt;Cache / job broker&lt;br&gt;Not a source of truth" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFF3E6;strokeColor=#D78B38;strokeWidth=2;fontColor=#513A20;fontSize=14;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="650" y="565" width="175" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="worker" value="&lt;b&gt;Background worker&lt;/b&gt;&lt;br&gt;Retryable jobs / notifications&lt;br&gt;Tenant context revalidated" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FFF8E8;strokeColor=#D5A62E;strokeWidth=2;fontColor=#4A3A16;fontSize=14;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="890" y="565" width="220" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="otel" value="&lt;b&gt;OpenTelemetry&lt;/b&gt;&lt;br&gt;Logs · metrics · traces&lt;br&gt;Request/correlation IDs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#E9F5F8;strokeColor=#4B98A8;strokeWidth=2;fontColor=#173F48;fontSize=14;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="565" width="210" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="files" value="&lt;b&gt;Private object storage&lt;/b&gt;&lt;br&gt;Clinical attachments / exports&lt;br&gt;Deferred until required&lt;br&gt;Tenant-authorized access" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;dashed=1;dashPattern=6 4;fillColor=#F5F7FA;strokeColor=#8796A5;strokeWidth=2;fontColor=#35495C;fontSize=13;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1135" y="440" width="220" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="wordpress" value="&lt;b&gt;WordPress CMS&lt;/b&gt;&lt;br&gt;Marketing content / SEO&lt;br&gt;Separate from clinical core" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;dashed=1;dashPattern=6 4;fillColor=#F5F7FA;strokeColor=#8796A5;strokeWidth=2;fontColor=#35495C;fontSize=13;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="65" y="565" width="205" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_user_web" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3980B9;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="users" target="web">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_web_api" value="HTTPS · JSON API" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3980B9;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontColor=#35536D;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="web" target="api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_api_db" value="Tenant-scoped transactions&lt;br&gt;RLS enforced" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8064A2;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontColor=#4D4162;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="api" target="postgres">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_api_redis" value="Enqueue / cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D78B38;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontColor=#795120;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="api" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_redis_worker" value="Retryable jobs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#D5A62E;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontColor=#705A1C;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="redis" target="worker">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_worker_db" value="Scoped job transaction" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#8064A2;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontColor=#4D4162;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="worker" target="postgres">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_api_otel" value="Telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#4B98A8;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontColor=#35636C;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="api" target="otel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_worker_otel" value="Telemetry" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#4B98A8;strokeWidth=2;endArrow=block;endFill=1;fontSize=12;fontColor=#35636C;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="worker" target="otel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_api_files" value="Short-lived authorized URLs&lt;br&gt;(when attachments are introduced)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#8796A5;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;fontColor=#526579;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="api" target="files">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_web_identity" value="Sign-in flow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#9B8AB5;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;fontColor=#675878;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="web" target="identity">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend" value="&lt;b&gt;Legend&lt;/b&gt;&amp;nbsp;&amp;nbsp; Solid: MVP flow&amp;nbsp;&amp;nbsp; Dashed: optional/deferred component or integration" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#D7DEE7;fontColor=#526579;fontSize=12;align=left;verticalAlign=middle;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="350" y="765" width="650" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Security boundary: the API derives tenant access from verified identity and membership. PostgreSQL RLS is defense in depth; client-side filtering never authorizes access." style="shape=note;whiteSpace=wrap;html=1;size=18;fillColor=#FFFBE6;strokeColor=#D6B656;fontColor=#51451D;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="835" width="1000" height="72" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -6,7 +6,7 @@
 
 ## 1. Purpose and scope
 
-This document describes the system boundaries, major components, data flow, and key architecture decisions for the PhysioNG MVP. It turns the product [blueprint](../product/implementation-blueprint.md) and [MVP scope](../../MVP_README.md) into an implementation-level architecture direction. Detailed module, API, data, and transaction behavior is in the [Low-Level Design](low-level-design.md).
+This document describes the system boundaries, major components, data flow, and key architecture decisions for the PhysioNG MVP. It turns the product [blueprint](../product/implementation-blueprint.md) and [MVP scope](../../MVP_README.md) into an implementation-level architecture direction. Open the editable [Draw.io system design](physiong-system-design.drawio) for the component view. Detailed module, API, data, and transaction behavior is in the [Low-Level Design](low-level-design.md).
 
 The first release serves physiotherapy clinics with a responsive staff-facing web application. It supports tenant onboarding, identity and membership, patient records and consent, practitioners, scheduling, encounters, clinical notes, treatment plans, and exercise prescriptions.
 

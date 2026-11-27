@@ -62,6 +62,7 @@ physiong.com/
 ├── turbo.json
 ├── pyproject.toml
 ├── .env.example
+├── .gitignore
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── PROJECT_PLAN.md

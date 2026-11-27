@@ -9,6 +9,7 @@
     "typecheck": "pnpm --filter @physiong/web typecheck",
     "test": "pnpm --filter @physiong/web test",
     "test:e2e": "pnpm --filter @physiong/web test:e2e",
+    "test:all": "pnpm lint && pnpm typecheck && pnpm test && pnpm test:e2e",
     "container:build": "docker compose build",
     "container:up": "docker compose up --build -d",
     "container:down": "docker compose down",

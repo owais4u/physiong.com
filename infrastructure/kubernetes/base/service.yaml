@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: physiong-web
+  labels:
+    app.kubernetes.io/name: physiong-web
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: physiong-web
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+      protocol: TCP

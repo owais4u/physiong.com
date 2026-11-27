@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: physiong
+resources:
+  - ../../base
+  - ingress.yaml
+  - www-redirect.yaml
+  - autoscaling.yaml
+  - disruption-budget.yaml
+images:
+  - name: ghcr.io/owais4u/physiong.com
+    newName: ghcr.io/owais4u/physiong.com
+    newTag: replace-with-git-sha

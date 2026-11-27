@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: physiong-www-redirect
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/permanent-redirect: https://physiong.com$request_uri
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - www.physiong.com
+      secretName: physiong-com-www-tls
+  rules:
+    - host: www.physiong.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: physiong-web
+                port:
+                  name: http

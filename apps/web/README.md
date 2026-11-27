@@ -20,6 +20,7 @@ For a production-mode local container, run `docker compose up --build -d` from t
 - Public clinic page with English/Hindi practitioner biography, specialties, location, and local demo booking.
 - Clinic workspace with daily schedule, patient directory, patient registration, appointment booking/status changes, and encounter notes.
 - Patient portal preview showing sample visit details.
+- Hospital operations and SaaS platform-admin previews.
 - Appointment overlap checks, browser-local persistence, and reset-to-demo data control.
 
 ## Demo data and security status

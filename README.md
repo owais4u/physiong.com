@@ -34,6 +34,8 @@ pnpm dev
 
 Open `http://localhost:3000`. The public PhysioNG page, clinic workspace (`/clinic`), demo booking (`/book`), and patient portal (`/patient`) are included. Demo records are stored in the current browser only. Do not enter real patient details; authentication, server persistence, database RLS, and production security are not connected yet.
 
+Hospital operations (`/hospital`) and platform administration (`/admin`) previews are also included. They use illustrative sample values and are not connected to hospital or SaaS administration systems.
+
 ## Run the containerized MVP locally
 
 Requirements: Docker Desktop (or Docker Engine) with Docker Compose.
@@ -43,6 +45,8 @@ docker compose up --build -d
 ```
 
 Open `http://localhost:3000`. Check startup with `docker compose ps` and follow logs with `docker compose logs -f web`. Stop the app with `docker compose down`. Set `PHYSIONG_PORT=3001` before starting if port 3000 is already in use. The image uses a production Next.js standalone build and runs as a non-root user. This MVP currently consists of the web app only; PostgreSQL, Redis, APIs, and workers are not implemented services yet.
+
+See [production deployment guide](docs/operations/production-deployment.md) for environment settings, browser end-to-end tests, Vercel domain setup, and the Kubernetes alternative. `pnpm test:all` runs all local checks.
 
 See the [project plan](PROJECT_PLAN.md), [MVP scope](MVP_README.md), [repository structure](REPOSITORY_STRUCTURE.md), [asset library](assets/README.md), [implementation blueprint](docs/product/implementation-blueprint.md), [C4 architecture diagrams](docs/architecture/physiong-c4-architecture.drawio), [system design diagram](docs/architecture/physiong-system-design.drawio), [High-Level Design](docs/architecture/high-level-design.md), and [Low-Level Design](docs/architecture/low-level-design.md).
 

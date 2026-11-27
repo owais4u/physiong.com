@@ -1,2 +1,14 @@
 # macOS Finder metadata
 .DS_Store
+
+# Node.js and Next.js
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+
+# Local environment files
+.env
+.env.*
+!.env.example

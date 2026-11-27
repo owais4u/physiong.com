@@ -21,3 +21,10 @@ assets/
 ## Current brand assets
 
 - [PhysioNG logo](logos/physiong-logo.jpeg) — supplied logo image, JPEG, 1290 × 1291 px.
+
+## Current stock photography
+
+- [Physiotherapy assessment](images/physiotherapy-assessment.jpg) — image by [Neuro Equilibrium](https://unsplash.com/photos/doctor-assisting-patient-on-a-scale-U0BBvZjCeOQ), free under the [Unsplash License](https://unsplash.com/license).
+- [Clinic treatment room](images/clinic-treatment-room.jpg) — image by [Nightingale Home nurse](https://unsplash.com/photos/black-and-white-massage-bed-4e017fuMeXE), free under the [Unsplash License](https://unsplash.com/license).
+
+The MVP web app serves optimized copies from `apps/web/public/images/` for local image delivery.

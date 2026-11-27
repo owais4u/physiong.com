@@ -23,6 +23,17 @@ These are product modules, not a requirement to launch separate apps. Start with
 - OpenTelemetry for logs, metrics, and traces.
 - Modular monolith first; extract independently deployable services when justified.
 
+## Run the MVP demo
+
+Requirements: Node.js 20.9+ and pnpm.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open `http://localhost:3000`. The public PhysioNG page, clinic workspace (`/clinic`), demo booking (`/book`), and patient portal (`/patient`) are included. Demo records are stored in the current browser only. Do not enter real patient details; authentication, server persistence, database RLS, and production security are not connected yet.
+
 See the [project plan](PROJECT_PLAN.md), [MVP scope](MVP_README.md), [repository structure](REPOSITORY_STRUCTURE.md), [asset library](assets/README.md), [implementation blueprint](docs/product/implementation-blueprint.md), [C4 architecture diagrams](docs/architecture/physiong-c4-architecture.drawio), [system design diagram](docs/architecture/physiong-system-design.drawio), [High-Level Design](docs/architecture/high-level-design.md), and [Low-Level Design](docs/architecture/low-level-design.md).
 
 ## Delivery sequence

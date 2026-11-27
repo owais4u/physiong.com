@@ -12,7 +12,9 @@ const navItems = [
   { href: "/clinic/patients", label: "Patients", icon: "users" as const },
   { href: "/clinic/appointments", label: "Appointments", icon: "calendar" as const },
   { href: "/clinic/encounters", label: "Clinical notes", icon: "clipboard" as const },
+  { href: "/hospital", label: "Hospital portal", icon: "activity" as const },
   { href: "/patient", label: "Patient portal", icon: "heart" as const },
+  { href: "/admin", label: "Platform admin", icon: "shield" as const },
 ];
 
 function getTitle(pathname: string) {

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { cp, mkdir } from "node:fs/promises";
 import { createServer } from "node:net";
 import { spawn } from "node:child_process";
 import { setTimeout as delay } from "node:timers/promises";
@@ -6,7 +7,13 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const nextBin = path.join(appRoot, "node_modules/next/dist/bin/next");
+const standaloneRoot = path.join(appRoot, ".next/standalone");
+const standaloneApp = path.join(standaloneRoot, "apps/web");
+
+await mkdir(path.join(standaloneApp, "public"), { recursive: true });
+await mkdir(path.join(standaloneApp, ".next/static"), { recursive: true });
+await cp(path.join(appRoot, "public"), path.join(standaloneApp, "public"), { recursive: true });
+await cp(path.join(appRoot, ".next/static"), path.join(standaloneApp, ".next/static"), { recursive: true });
 
 async function availablePort() {
   const server = createServer();
@@ -18,9 +25,9 @@ async function availablePort() {
 
 const port = await availablePort();
 const baseUrl = `http://127.0.0.1:${port}`;
-const server = spawn(process.execPath, [nextBin, "start", "--hostname", "127.0.0.1", "--port", String(port)], {
-  cwd: appRoot,
-  env: { ...process.env, NODE_ENV: "production" },
+const server = spawn(process.execPath, [path.join(standaloneApp, "server.js")], {
+  cwd: standaloneRoot,
+  env: { ...process.env, NODE_ENV: "production", PORT: String(port), HOSTNAME: "127.0.0.1" },
   stdio: ["ignore", "pipe", "pipe"],
 });
 let serverOutput = "";
@@ -45,6 +52,8 @@ try {
     ["/clinic/patients", "Patient directory"],
     ["/clinic/appointments", "Appointments"],
     ["/clinic/encounters", "Clinical notes"],
+    ["/hospital", "CRIBS Hospital"],
+    ["/admin", "control centre"],
     ["/book", "Request a visit"],
     ["/patient", "Patient portal"],
   ];
@@ -55,6 +64,16 @@ try {
     assert.ok(html.includes(expectedText), `${route} should include “${expectedText}”`);
     console.log(`✓ ${route} responds with expected page content`);
   }
+
+  const health = await fetch(`${baseUrl}/api/health`);
+  assert.equal(health.status, 200);
+  assert.deepEqual(await health.json(), { status: "ok", service: "physiong-web" });
+  console.log("✓ /api/health reports a healthy web process");
+
+  const home = await fetch(baseUrl);
+  assert.equal(home.headers.get("x-content-type-options"), "nosniff");
+  assert.equal(home.headers.get("x-frame-options"), "DENY");
+  console.log("✓ security response headers are present");
 
   for (const asset of ["/images/physiong-logo.jpeg", "/images/physiotherapy-assessment.jpg", "/images/clinic-treatment-room.jpg"]) {
     const response = await fetch(`${baseUrl}${asset}`);

@@ -1,0 +1,13 @@
+{
+  "name": "physiong-platform",
+  "private": true,
+  "packageManager": "pnpm@11.22.0",
+  "scripts": {
+    "dev": "pnpm --filter @physiong/web dev",
+    "build": "pnpm --filter @physiong/web build",
+    "lint": "pnpm --filter @physiong/web lint",
+    "typecheck": "pnpm --filter @physiong/web typecheck",
+    "test": "pnpm --filter @physiong/web test",
+    "test:e2e": "pnpm --filter @physiong/web test:e2e"
+  }
+}

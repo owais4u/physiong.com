@@ -4,6 +4,8 @@
 **Product direction:** India and global markets; clinic-first, responsive PWA; multi-tenant SaaS.  
 **Status:** MVP scope proposal based on [the project plan](PROJECT_PLAN.md) and [product blueprint](docs/product/implementation-blueprint.md).
 
+**Working demo:** The first Next.js interface is in [apps/web](apps/web/README.md). It demonstrates the clinic and patient journeys with browser-local sample data; it is not ready for live patient records or production clinical operations.
+
 ## MVP outcome
 
 A clinic administrator can set up an organization and branch, invite staff, and manage patients, appointments, and physiotherapy encounters in one tenant-aware web application. Staff can document consent, assessment, diagnosis, treatment, and clinical notes, then schedule a follow-up. Tenant boundaries and clinical access history are enforced by the server and database.

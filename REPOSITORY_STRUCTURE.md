@@ -26,6 +26,11 @@ physiong.com/
 │   ├── auth/                    # Frontend authentication helpers
 │   ├── config/                  # Shared configuration
 │   └── i18n/                    # Translation resources
+├── assets/
+│   ├── logos/                   # Product and brand logos
+│   ├── images/                  # Product imagery and illustrations
+│   ├── banners/                 # Marketing and in-app banners
+│   └── icons/                   # Custom icons and small graphics
 ├── database/
 │   ├── migrations/
 │   ├── seeds/
@@ -65,5 +70,7 @@ physiong.com/
 ```
 
 The current checkout tracks the planned directories with `.gitkeep` files. Runtime configs and applications will be added as their implementation lands. The first release should use `apps/web` with role-based experiences and `services/api` as a modular monolith; the other portal folders are future extraction boundaries.
+
+See [assets/README.md](assets/README.md) for asset naming, format, and provenance guidance.
 
 For domain responsibilities and technology ownership, see the [architecture guide](docs/architecture/repository-architecture.md).

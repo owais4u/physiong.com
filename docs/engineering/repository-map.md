@@ -10,6 +10,7 @@ The first runnable release should use `apps/web` for public pages and role-based
 - `services/` — API, intelligence, background workers, and integrations.
 - `cms/` — WordPress configuration and extensions.
 - `packages/` — shared UI, contracts, auth, configuration, and translations.
+- `assets/` — shared product logos, images, banners, and icons; see [asset guidance](../../assets/README.md).
 - `database/` — migrations, seeds, schemas, and PostgreSQL policies.
 - `infrastructure/` — local containers, deployment, monitoring, and environments.
 - `docs/` — product, architecture, engineering, API, data, security, and operations.

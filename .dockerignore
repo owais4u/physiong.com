@@ -1,0 +1,12 @@
+.git
+.github
+.next
+**/.next
+**/node_modules
+node_modules
+**/.DS_Store
+**/coverage
+**/dist
+**/build
+**/.env*
+!**/.env.example

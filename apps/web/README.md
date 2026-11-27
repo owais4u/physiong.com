@@ -13,6 +13,8 @@ pnpm dev
 
 Open `http://localhost:3000`.
 
+For a production-mode local container, run `docker compose up --build -d` from the repository root, then open `http://localhost:3000`. Use `docker compose logs -f web` to inspect logs and `docker compose down` to stop it. The container packages the currently implemented web MVP; architecture components without code are not started as containers.
+
 ## Included journeys
 
 - Public clinic page with English/Hindi practitioner biography, specialties, location, and local demo booking.

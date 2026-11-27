@@ -34,8 +34,9 @@ img { max-width: 100%; }
 .icon-button:hover { background: #f5f8f7; }
 
 /* Public site */
-.site-header { height: 82px; display: flex; align-items: center; border-bottom: 1px solid rgba(229,235,232,.75); background: rgba(251,252,250,.92); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
+.site-header { min-height: 2.35in; display: flex; align-items: center; border-bottom: 1px solid rgba(229,235,232,.75); background: rgba(251,252,250,.92); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
 .site-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.site-header .brand-mark, .patient-header .brand-mark { width: 2in; height: 2in; }
 .brand { display: inline-flex; align-items: center; gap: 11px; }
 .brand-mark { display: block; width: 43px; height: 43px; object-fit: contain; border-radius: 50%; }
 .brand-name { font-family: "Manrope", sans-serif; font-size: 17px; font-weight: 800; letter-spacing: -.04em; color: var(--navy); }
@@ -109,6 +110,8 @@ img { max-width: 100%; }
 .portal-sidebar { position: sticky; top: 0; height: 100vh; padding: 24px 16px; background: var(--navy); color: white; display: flex; flex-direction: column; }
 .portal-sidebar .brand-name { color: white; }
 .portal-sidebar .brand-caption { color: #a6b9c1; }
+.portal-sidebar .brand { flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.portal-sidebar .brand-mark { width: 2in; height: 2in; max-width: 100%; border-radius: 0; }
 .sidebar-clinic { display: flex; align-items: center; gap: 10px; margin: 29px 3px 20px; padding: 12px; border: 1px solid rgba(255,255,255,.13); border-radius: 13px; background: rgba(255,255,255,.06); }
 .clinic-avatar { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: #d6eee6; color: var(--teal-dark); font-size: 11px; font-weight: 800; }
 .sidebar-clinic strong { display: block; font-size: 11px; }
@@ -252,7 +255,7 @@ td strong { color: var(--ink); font-size: 11px; }
 .clinic-details h3 { margin: 0 0 4px; font-size: 12px; }
 .clinic-details > p { margin: 0 0 15px; color: var(--muted); font-size: 10px; }
 .patient-preview-shell { min-height: 100vh; background: #f5f8f7; }
-.patient-header { height: 76px; display: flex; align-items: center; border-bottom: 1px solid var(--line); background: white; }
+.patient-header { min-height: 2.35in; display: flex; align-items: center; border-bottom: 1px solid var(--line); background: white; }
 .patient-header-inner { width: min(1200px,calc(100% - 48px)); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .patient-header-links { display: flex; align-items: center; gap: 20px; color: #607681; font-size: 11px; font-weight: 600; }
 .patient-header-links a:hover { color: var(--teal); }
@@ -273,7 +276,7 @@ td strong { color: var(--ink); font-size: 11px; }
 }
 @media (max-width: 760px) {
   .container { width: min(100% - 32px, 560px); }
-  .site-header { height: 68px; }
+  .site-header { min-height: 2.35in; }
   .site-nav { display: none; }
   .site-header-actions .button.secondary { display: none; }
   .brand-mark { width: 38px; height: 38px; }
